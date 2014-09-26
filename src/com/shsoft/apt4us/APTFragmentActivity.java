@@ -11,8 +11,13 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.ads.mediation.admob.AdMobAdapter;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.shsoft.apt4us.BaseComponents.A4UDefines;
 import com.shsoft.apt4us.fragments.A4UFragment_APT_Alarm;
 import com.shsoft.apt4us.fragments.A4UFragment_APT_List;
@@ -25,6 +30,7 @@ public class APTFragmentActivity extends FragmentActivity implements OnClickList
 	private A4UFragment_APT_List mFragment_APT_List = null;
 	private A4UFragment_APT_Alarm mFragment_APT_Alarm  = null;
 	
+	private AdView mAdView;
 	@Override
 	protected void onCreate(Bundle arg) {
 		// TODO Auto-generated method stub
@@ -34,6 +40,19 @@ public class APTFragmentActivity extends FragmentActivity implements OnClickList
 		Button mRequestPush = (Button) findViewById(R.id.bt_requestPush);
 		mRequestPush.setOnClickListener(this);
 
+		
+		// ad test
+		mAdView = new AdView(this);
+        mAdView.setAdUnitId("ca-app-pub-1183484887572395/2248222665");
+        mAdView.setAdSize(AdSize.BANNER);
+        //mAdView.setAdListener(new ToastAdListener(this));
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.rl_framentmain);
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layout.addView(mAdView, params);
+        mAdView.loadAd(new AdRequest.Builder().build());
+		// 
+		
 		//Bundle extras = arg.getExtras();
 		Bundle Extra = getIntent().getExtras();
 		if (Extra != null) {
