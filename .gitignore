@@ -1,34 +1,6 @@
 
-.classpath
-
-bin/R.txt
-
-.classpath
-
 *.class
 
-gen/com/shsoft/apt4us/R.java
-
-gen/android/support/v7/appcompat/R.java
-
-gen/com/google/android/gms/R.java
-
-bin/AndroidManifest.xml
-
-gen/com/shsoft/apt4us/BuildConfig.java
-
-gen/com/shsoft/apt4us/Manifest.java
-
-bin/dexedLibs/jericho-html-3.3-45caffefbc962e3151c993e67894c774.jar
-
-bin/dexedLibs/android-support-v7-appcompat-422e235f7d959ac3459b9e6c89d2230a.jar
-
-bin/dexedLibs/android-support-v7-appcompat-40dd7ebc98f748f5d9954aaa53ba94ff.jar
-
-bin/dexedLibs/android-support-v4-bfad08226199fff1fc339803b05c4dd2.jar
-
-bin/dexedLibs/google-play-services_lib-83d7be3cc1a9b06bedadbca313251d18.jar
-
-bin/dexedLibs/google-play-services-567d579bfd5d5250a68ec99343be1f76.jar
+gen
 
 bin
