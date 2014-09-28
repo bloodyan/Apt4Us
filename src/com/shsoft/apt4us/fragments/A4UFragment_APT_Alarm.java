@@ -299,36 +299,44 @@ public class A4UFragment_APT_Alarm extends Fragment {
 					
 					String urlString = A4UDefines.PushServerURL + "requestPush/" + regid;
 				 try {
-					 URL url = new URL(urlString);
-					 trustAllHosts();
-					 HttpsURLConnection https = (HttpsURLConnection) url.openConnection(); 
-					 https.setHostnameVerifier(DO_NOT_VERIFY); 
-					 HttpURLConnection conn = null; 
-					 conn = https; 
-            
-					 if (conn != null) {
-						 conn.setConnectTimeout(10000);
-						 conn.setUseCaches(false);
-						 int resultcode = 0;
-						 conn.connect();
-						 Log.d(TAG, "result : " + conn.getResponseCode());
-					 }	 
-                     /*//http 
-                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                     connection.setRequestMethod("POST");
-                     connection.setDoInput(true);
-                     connection.setDoOutput(true);
-                     connection.connect();
-
-                     StringBuilder responseStringBuilder = new StringBuilder();
-                     if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-                    	 Log.d(TAG,"Connected");
-                     }
-
-                     connection.disconnect();
-					
-                     Log.d(TAG, responseStringBuilder.toString());
-                      */
+					 String sProtocol = urlString.split("://")[0];
+					 URL url = new URL(urlString);		
+					 if(urlString.split("://")[0].compareTo("https") == 0)
+					 {
+						 
+						 
+						 trustAllHosts();
+						 HttpsURLConnection https = (HttpsURLConnection) url.openConnection(); 
+						 https.setHostnameVerifier(DO_NOT_VERIFY); 
+						 HttpURLConnection conn = null; 
+						 conn = https; 
+	            
+						 if (conn != null) {
+							 conn.setConnectTimeout(10000);
+							 conn.setUseCaches(false);
+							 int resultcode = 0;
+							 conn.connect();
+							 Log.d(TAG, "result : " + conn.getResponseCode());
+						 }
+					 }
+                     //http 
+                     if(urlString.split("://")[0].compareTo("https") == 0)
+                     {
+	                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+	                     connection.setRequestMethod("POST");
+	                     connection.setDoInput(true);
+	                     connection.setDoOutput(true);
+	                     connection.connect();
+	
+	                     StringBuilder responseStringBuilder = new StringBuilder();
+	                     if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+	                    	 Log.d(TAG,"Connected");
+	                     }
+	
+	                     connection.disconnect();
+						
+	                     Log.d(TAG, responseStringBuilder.toString());
+                      }
                  } catch (MalformedURLException e) {
                      e.printStackTrace();
                  } catch (IOException e) {

@@ -40,7 +40,7 @@ public class APTFragmentActivity extends FragmentActivity implements OnClickList
 		Button mRequestPush = (Button) findViewById(R.id.bt_requestPush);
 		mRequestPush.setOnClickListener(this);
 
-		
+		/*
 		// ad test
 		mAdView = new AdView(this);
         mAdView.setAdUnitId("ca-app-pub-1183484887572395/2248222665");
@@ -52,7 +52,7 @@ public class APTFragmentActivity extends FragmentActivity implements OnClickList
         layout.addView(mAdView, params);
         mAdView.loadAd(new AdRequest.Builder().build());
 		// 
-		
+		*/
 		//Bundle extras = arg.getExtras();
 		Bundle Extra = getIntent().getExtras();
 		if (Extra != null) {

@@ -47,13 +47,13 @@ public class A4UFragment_APT_List extends Fragment implements AptParseListener {
 //		}
 		
 		mHouseNameTV = (TextView)v.findViewById(R.id.ColumnName1);
-		mHouseNameTV.setText("ÁÖÅÃ¸í");
+		mHouseNameTV.setText("ì£¼íƒ");
 		mCompanyTV = (TextView)v.findViewById(R.id.ColumnName2);
-		mCompanyTV.setText("¾÷Ã¼¸í");		
+		mCompanyTV.setText("íšŒì‚¬ì´");		
 		mTimeLimitTV = (TextView)v.findViewById(R.id.ColumnName3);
-		mTimeLimitTV.setText("Ã»¾à±â°£");
+		mTimeLimitTV.setText("ì‹ ì²­ê¸°");
 		mAnnounceDayTV = (TextView)v.findViewById(R.id.ColumnName4);
-		mAnnounceDayTV.setText("¹ßÇ¥ÀÏ");
+		mAnnounceDayTV.setText("ë°œí‘œì¼");
 		
 		mMainTable = (TableLayout)v.findViewById(R.id.TableLayout_List);
 		
@@ -75,18 +75,18 @@ public class A4UFragment_APT_List extends Fragment implements AptParseListener {
 			String AnnounceDate;
 			Element element = it.next();
 			List<Element> result = element.getAllElements();
-			String Name = result.get(2).getContent().toString().replace("¡¡", ""); // Áı ÀÌ¸§
+			String Name = result.get(2).getContent().toString().replace("ï¿½ï¿½", ""); // ï¿½ï¿½ ï¿½Ì¸ï¿½
 			if(result.size() <= 6) 
 			{
-				Company = result.get(3).getContent().toString().replace(" ", ""); // È¸»ç¸í
-				TimeLimit = result.get(4).getContent().toString().replace(" ", "").replace("¡¡", "").replace("\r", "").replace("\n", "").replace("\t", "").replace("~", "\n~ "); // ±â°£
-				AnnounceDate = result.get(5).getContent().toString().replace(" ", ""); // ¹ßÇ¥ÀÏ
+				Company = result.get(3).getContent().toString().replace(" ", ""); // È¸ï¿½ï¿½ï¿½
+				TimeLimit = result.get(4).getContent().toString().replace(" ", "").replace("ï¿½ï¿½", "").replace("\r", "").replace("\n", "").replace("\t", "").replace("~", "\n~ "); // ï¿½â°£
+				AnnounceDate = result.get(5).getContent().toString().replace(" ", ""); // ï¿½ï¿½Ç¥ï¿½ï¿½
 			}
 			else
 			{
-				Company = result.get(4).getContent().toString().replace(" ", ""); // È¸»ç¸í
-				TimeLimit = result.get(5).getContent().toString().replace(" ", "").replace("¡¡", "").replace("\r", "").replace("\n", "").replace("\t", "").replace("~", "\n~ "); // ±â°£
-				AnnounceDate = result.get(6).getContent().toString().replace(" ", ""); // ¹ßÇ¥ÀÏ
+				Company = result.get(4).getContent().toString().replace(" ", ""); // È¸ï¿½ï¿½ï¿½
+				TimeLimit = result.get(5).getContent().toString().replace(" ", "").replace("ï¿½ï¿½", "").replace("\r", "").replace("\n", "").replace("\t", "").replace("~", "\n~ "); // ï¿½â°£
+				AnnounceDate = result.get(6).getContent().toString().replace(" ", ""); // ï¿½ï¿½Ç¥ï¿½ï¿½
 				
 			}
 			TableRow NewTR = new TableRow(getActivity());
