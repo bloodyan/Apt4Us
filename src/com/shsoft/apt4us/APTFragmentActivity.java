@@ -37,8 +37,8 @@ public class APTFragmentActivity extends FragmentActivity implements OnClickList
 		super.onCreate(arg);
 		setContentView(R.layout.fragment_main);
 		//
-		Button mRequestPush = (Button) findViewById(R.id.bt_requestPush);
-		mRequestPush.setOnClickListener(this);
+		//Button mRequestPush = (Button) findViewById(R.id.bt_requestPush);
+		//mRequestPush.setOnClickListener(this);
 
 		/*
 		// ad test

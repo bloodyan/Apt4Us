@@ -314,29 +314,36 @@ public class A4UFragment_APT_Alarm extends Fragment {
 						 if (conn != null) {
 							 conn.setConnectTimeout(10000);
 							 conn.setUseCaches(false);
-							 int resultcode = 0;
 							 conn.connect();
 							 Log.d(TAG, "result : " + conn.getResponseCode());
 						 }
+						 conn.disconnect();
 					 }
                      //http 
-                     if(urlString.split("://")[0].compareTo("https") == 0)
+					 else if(urlString.split("://")[0].compareTo("http") == 0)
                      {
 	                     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-	                     connection.setRequestMethod("POST");
-	                     connection.setDoInput(true);
-	                     connection.setDoOutput(true);
-	                     connection.connect();
-	
-	                     StringBuilder responseStringBuilder = new StringBuilder();
-	                     if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
-	                    	 Log.d(TAG,"Connected");
-	                     }
+	                     //connection.setRequestMethod("GET");
+	                     //connection.setRequestMethod("SET");
+	                     //connection.setDoInput(true);
+	                     //connection.setDoOutput(true);
+	                     
+	                     if (connection != null) {
+	                    	 connection.setConnectTimeout(10000);
+	                    	 connection.connect();
+	                    	 int retCode = connection.getResponseCode();
+							 Log.d(TAG, "result : " + retCode);
+						 }
+//	                     StringBuilder responseStringBuilder = new StringBuilder();
+//	                     if (connection.getResponseCode() == HttpURLConnection.HTTP_OK){
+//	                    	 Log.d(TAG,"Connected");
+//	                     }
 	
 	                     connection.disconnect();
 						
-	                     Log.d(TAG, responseStringBuilder.toString());
+	                    // Log.d(TAG, responseStringBuilder.toString());
                       }
+					 
                  } catch (MalformedURLException e) {
                      e.printStackTrace();
                  } catch (IOException e) {
